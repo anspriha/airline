@@ -25,7 +25,7 @@ public class BookingRestController {
 
 		if (paymentSuccess) {
 			// Step 2: Proceed with booking if payment is successful
-			bookingService.bookFlight(bookingDetails.getBookingDetails());
+			bookingService.bookFlight(bookingDetails);
 			return ResponseEntity.ok("Your Booking is Successful and Payment Confirmed.");
 		} else {
 			return ResponseEntity.status(HttpStatus.BAD_REQUEST).body("Payment Failed! Please try again.");
