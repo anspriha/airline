@@ -13,6 +13,27 @@ public class BookingDetails{
 	private FlightDetail bookFlight;
     private List<Passenger> passengers;
 
+	private BookingDetails bookingDetails;
+
+	private PaymentDetails paymentDetails;
+
+
+	public PaymentDetails getPaymentDetails() {
+		return paymentDetails;
+	}
+
+	public void setPaymentDetails(PaymentDetails paymentDetails) {
+		this.paymentDetails = paymentDetails;
+	}
+
+	public BookingDetails getBookingDetails() {
+		return bookingDetails;
+	}
+
+	public void setBookingDetails(BookingDetails bookingDetails) {
+		this.bookingDetails = bookingDetails;
+	}
+
 	public FlightDetail getBookFlight() {
 		return bookFlight;
 	}
@@ -28,4 +49,5 @@ public class BookingDetails{
 	public void setPassengers(List<Passenger> passengers) {
 		this.passengers = passengers;
 	}
+
 }
