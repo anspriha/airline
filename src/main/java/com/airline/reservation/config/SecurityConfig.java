@@ -25,17 +25,6 @@ public class SecurityConfig {
 	@Autowired
 	AuthenticationService authenticationService;
 
-	/*	@Bean
-	public WebSecurityCustomizer webSecurityCustomizer() {
-		return web -> web
-				.ignoring()
-				.requestMatchers("/resources/**");  // Correct usage with ignoring()
-	}*/
-	/*@Bean
-	public AuthenticationManager authManager(AuthenticationConfiguration authenticationConfiguration) throws Exception {
-		return authenticationConfiguration.getAuthenticationManager();
-	}
-*/
 	@Bean
 	public AuthenticationManager authManager(HttpSecurity http) throws Exception {
 		// Use the AuthenticationManagerBuilder to configure the AuthenticationManager directly
@@ -55,7 +44,7 @@ public class SecurityConfig {
 		http
 				.csrf(csrf -> csrf.disable()) // Disable CSRF protection api/searchFlights
 				.authorizeHttpRequests(authorize -> authorize
-						.requestMatchers("/api/login", "/api/register", "/api/searchFlights", "/api/bookFlight").permitAll() // Allow access to the custom /login endpoint
+						.requestMatchers("/v3/api-docs/**","/swagger-ui.html","/swagger-ui/**","/api/login", "/api/register", "/api/searchFlights", "/api/bookFlight").permitAll() // Allow access to the custom /login endpoint
 						.anyRequest().authenticated() // Require authentication for other endpoints
 				);
 		return http.build();

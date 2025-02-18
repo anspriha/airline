@@ -26,8 +26,8 @@ public class LoginController {
 
     @PostMapping("/login")
     public ResponseEntity<Map<String, String>> login(@RequestBody Map<String, String> loginData) {
-        System.out.println("loginData: " + loginData.get("username"));
-        String userName = loginData.get("username");
+        System.out.println("loginData: " + loginData.get("userName"));
+        String userName = loginData.get("userName");
         String password = loginData.get("password");
 
         // Authenticate user using Spring Security's AuthenticationManager
